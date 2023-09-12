@@ -1,0 +1,145 @@
+/* Global CSS Variables */
+:root {
+  --clr-primary-400: hsl(31, 77%, 52%);
+  --clr-primary-600: hsl(184, 100%, 22%);
+  --clr-primary-700: hsl(179, 100%, 13%);
+
+  --clr-neutral-100: hsla(0, 0%, 100%, 0.75);
+  --clr-neutral-200: hsl(0, 0%, 95%);
+
+  --ff-big-shoulders: 'Big Shoulders Display', cursive;
+  --ff-lexend-deca: 'Lexend Deca', sans-serif;
+  
+  --fs-small: .9375rem;
+  --fs-medium: 2rem;
+}
+
+/* Custom CSS Setup */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+/* For Card Only */
+html,
+body {
+  min-height: 100%;   
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+input, button, textarea, select {
+  font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+
+/* General Styles */
+body {
+  font-family: var(--ff-lexend-deca);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-regular);
+  
+  background-color: var(--clr-neutral-200);
+  color: var(--clr-neutral-200);
+  
+  padding: 5em 2rem;
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+}
+h1, h2, h3 {
+  color: var(--clr-neutral-200);
+  font-family: var(--ff-big-shoulders);
+  font-size: 3rem;
+  text-transform: uppercase;
+  line-height: 1;
+}
+p {
+  color: var(--clr-neutral-100);
+}
+
+/* Utilities Class */
+.grid {
+  display: grid;
+  grid-auto-flow: row;
+}
+.grid[direction="column"] {
+  grid-auto-flow: column;
+}
+.flex {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Other Styles */
+.card-group {
+  grid-auto-columns: 1fr;
+  border-radius: .5em;
+  overflow: hidden;
+}
+.card {
+  --gap-size: 2.625rem;
+  padding: 3rem;
+}
+.card[color="orange"] {
+  --card-clr: var(--clr-primary-400);
+  background-color: var(--clr-primary-400);
+}
+.card[color="cyan"] {
+  --card-clr: var(--clr-primary-600);
+  background-color: var(--clr-primary-600);
+}
+.card[color="dark-cyan"] {
+  --card-clr: var(--clr-primary-700);
+  background-color: var(--clr-primary-700);
+}
+
+.card-upper-section {
+  gap: var(--gap-size);
+  margin-bottom: 2.125rem;
+}
+
+.button {
+  margin-top: auto;
+  border: 2px solid transparent;
+  border-radius: 100vh;
+  padding: .7em 2.2em;
+
+  background-color: var(--clr-neutral-200);
+  color: var(--card-clr);
+  transition: all .25s;
+  cursor: pointer;
+}
+.button:hover, .button:focus {
+  background-color: var(--card-clr);
+  border: 2px solid var(--clr-neutral-200);
+  color: var(--clr-neutral-200);
+}
+
+.attribution { color: black; font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); text-decoration: none; }
+
+/* Media Queries */
+@media (min-width: 42rem) {
+  .card-group {
+    margin: 1rem auto;
+    grid-auto-flow: column;
+  }
+  .card {
+    max-width: 20em;
+  }
+  .flex {
+    gap: 5.3em;
+  }
+}
